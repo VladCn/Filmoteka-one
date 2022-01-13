@@ -15,3 +15,17 @@
     width: 912px;
   }
 }
+.header__link{
+  color: white;
+  text-transform: uppercase;
+  display: flex;
+}
+.header__icon{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 46px 0 0 0;
+}
+.header__li:first-child{
+  margin-right: 39px;
+}
