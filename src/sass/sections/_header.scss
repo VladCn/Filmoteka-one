@@ -4,27 +4,67 @@
 
   @include _phone_gap {
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url("../images/rectanglejpg.jpg");
-
+    background-size: cover;
+    .header__span{
+      display: none;
+      color: white;
+    }
+    .header__enter{
+      width: 280px;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 0.5px solid white;
+    }
   }
 
   @include _tablet {
-    width: 648px;
+    width: 768px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url("../images/rectangl_tab.jpg");
+    background-size: cover;
+    .header__span{
+      display: block;
+      color: white;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 30px;
+      line-height: 35px;
+    }
+    .header__enter{
+      width: 336px;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 0.5px solid white;
+      margin-right: auto;
+      margin-left: auto;
+    }
   }
 
   @include _desktop {
-    width: 912px;
+    width: 1024px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url("../images/rectangle_pc.jpg");
+    background-size: cover;
+    .header__enter{
+      width: 336px;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 0.5px solid white;
+      margin-right: auto;
+      margin-left: auto;
+    }
   }
 }
 .header__link{
   color: white;
   text-transform: uppercase;
   display: flex;
-  font-family: Roboto;
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 14px;
 
+}
+::-webkit-input-placeholder { /* WebKit browsers */
+  color:    white;
 }
 .header__up{
   display: flex;
@@ -36,13 +76,15 @@
 .header__li:first-child{
   margin-right: 39px;
 }
+.header__film{
+  display: flex;
+}
 
 .header__input{
   color: white;
   border: none;
   background: none;
   padding-bottom: 4px;
-  font-family: Roboto;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
@@ -50,11 +92,7 @@
 }
 
 
-.header__enter{
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 0.5px solid white;
-}
+
 
 .header__button{
 background: url("../images/search2.svg");
@@ -64,4 +102,11 @@ background: url("../images/search2.svg");
   height: 12px;
   width: 12px;
   margin-top: 2px;
+}
+.active {
+  border-bottom: 3px solid #FF6B08;
+}
+
+.header__pic{
+  margin-right: 10px;
 }
