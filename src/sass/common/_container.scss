@@ -1,0 +1,18 @@
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+
+  @include _phone_gap {
+    width: 310px;
+  }
+
+  @include _tablet {
+    width: 648px;
+  }
+
+  @include _desktop {
+    width: 912px;
+  }
+}

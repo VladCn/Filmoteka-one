@@ -1,0 +1,25 @@
+$colors: (
+  'accent': #ff6b08,
+  'text-primary': #000000,
+  'text-secondary': #ff6b08,
+  'text-third': #ffffff,
+  'text-fourth': #545454,
+  'text-fifth': #8c8c8c,
+  'bg-primary': #ffffff,
+  'bg-secondary': #f7f7f7,
+  'bg-backdrop': rgba(0, 0, 0, 0.25),
+  'title-primary': #000000,
+  'icon-primary': #000000,
+  'icon-secondary': #ffffff,
+  'icon-bg': #f7f7f7,
+  'button-text': #ffffff,
+  'button-bg-primary': #ff6b08,
+  'button-bg-secondary': transparent,
+  'input-placeholder': #ffffff,
+);
+
+@function getColor($key) {
+  @return map-get($colors, $key);
+}
+
+$animation-cubic: cubic-bezier(0.4, 0, 0.2, 1);

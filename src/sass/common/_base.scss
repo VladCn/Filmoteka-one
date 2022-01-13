@@ -1,0 +1,15 @@
+html {
+  overflow-x: hidden;
+  margin-right: calc(-1 * (100vw - 100%));
+}
+
+body {
+  position: relative;
+  overflow-x: hidden;
+  background-color: getColor('bg-primary');
+  font-family: 'Roboto', sans-serif;
+}
+
+.disable-scroll {
+  overflow: hidden;
+}
