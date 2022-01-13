@@ -29,3 +29,27 @@
 .header__li:first-child{
   margin-right: 39px;
 }
+
+.header__input{
+  color: white;
+border: none;
+  background: none;
+  padding-bottom: 4px;
+}
+
+
+.header__enter{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 0.5px solid white;
+}
+
+.header__button{
+background: url("../images/search2.svg");
+  //background-repeat: no-repeat;
+  border: none;
+  //padding:0 6px;
+  height: 12px;
+  width: 12px;
+
+}
