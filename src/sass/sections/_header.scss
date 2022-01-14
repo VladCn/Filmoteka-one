@@ -43,6 +43,16 @@
     width: 1024px;
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url("../images/rectangle_pc.jpg");
     background-size: cover;
+
+    .header__span{
+      display: block;
+      color: white;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 30px;
+      line-height: 35px;
+    }
+
     .header__enter{
       width: 336px;
       display: flex;
@@ -110,4 +120,8 @@ background: url("../images/search2.svg");
 
 .header__pic{
   margin-right: 10px;
+}
+
+.header__link-page{
+  color: white;
 }
