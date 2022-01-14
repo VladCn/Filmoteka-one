@@ -1,6 +1,7 @@
 .header{
   height: 230px;
   background-color: #ff6b08;
+  margin-bottom: 15px;
 
   @include _phone_gap {
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url("../images/rectanglejpg.jpg");
@@ -14,11 +15,12 @@
       display: flex;
       justify-content: space-between;
       border-bottom: 0.5px solid white;
+      margin-right: auto;
+      margin-left: auto;
     }
   }
 
   @include _tablet {
-    width: 768px;
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url("../images/rectangl_tab.jpg");
     background-size: cover;
     .header__span{
@@ -40,7 +42,7 @@
   }
 
   @include _desktop {
-    width: 1024px;
+
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url("../images/rectangle_pc.jpg");
     background-size: cover;
 

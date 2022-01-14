@@ -6,14 +6,28 @@
 
 
   @include _phone_gap {
-    width: 310px;
+    min-width: 320px;
   }
 
   @include _tablet {
-    width: 648px;
+    min-width: 768px;
   }
 
   @include _desktop {
-    width: 912px;
+    min-width: 1024px;
+  }
+}
+.wrapper{
+  box-sizing: border-box;
+  @include _phone_gap {
+    min-width: 320px;
+  }
+
+  @include _tablet {
+    min-width: 768px;
+  }
+
+  @include _desktop {
+    min-width: 1024px;
   }
 }
