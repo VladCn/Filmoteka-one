@@ -125,3 +125,62 @@ background: url("../images/search2.svg");
 .header__link-page{
   color: white;
 }
+
+
+.header-library{
+  height: 230px;
+  background-color: #ff6b08;
+
+  @include _phone_gap {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url("../images/lib-bacgr_mob.jpg");
+    background-size: cover;
+  }
+
+  @include _tablet {
+    width: 768px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url("../images/lib-bacgr_tab.jpg");
+    background-size: cover;
+  }
+
+  @include _desktop {
+    width: 1024px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url("../images/lib-bacgr_pc.jpg");
+    background-size: cover;
+    }
+  }
+
+.library__btn{
+  width: 136px;
+  height: 44px;
+  border: 1px solid;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 8px;
+  max-width: 200px;
+  background: #fff; /* запасной цвет для старых браузеров */
+  background: rgba(255, 255, 255, 0);
+
+  color: #fff;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  text-transform: uppercase;
+}
+
+.library__list{
+  display: flex;
+  justify-content: center;
+}
+.library__list-item{
+  margin-bottom: 65px;
+}
+.library__list-item:first-child{
+  margin-right: 15px;
+}
+.active__btn{
+  background: #FF6B01;
+  box-shadow: 0px 8px 43px rgba(255, 107, 1, 0.6);
+
+}
