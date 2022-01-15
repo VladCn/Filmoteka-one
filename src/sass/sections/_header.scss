@@ -1,7 +1,7 @@
 .header{
   height: 230px;
   background-color: #ff6b08;
-  margin-bottom: 15px;
+
 
   @include _phone_gap {
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url("../images/rectanglejpg.jpg");
