@@ -1,0 +1,57 @@
+.footer{
+  background-color: #F7F7F7;
+}
+
+.footer__item{
+  display: flex;
+
+  height: 100px;
+  @include _phone_gap {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @include _tablet {
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  @include _desktop {
+    justify-content: center;
+    align-items: center;
+  }
+}
+.footer__text{
+  font-size: 14px;
+  line-height: 16px;
+  color: #545454;
+  @include _tablet {
+    font-size: 16px;
+    line-height: 19px;
+  }
+  @include _desktop {
+    font-size: 16px;
+    line-height: 19px;
+  }
+}
+.footer__text:first-child{
+  margin-bottom: 10px;
+}
+.footer__heart{
+  animation-name: spin;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  @keyframes spin {
+    0% {
+      transform: scale(1);
+
+    }
+
+    100% {
+      transform: scale(0.5);
+    }
+  }
+}
