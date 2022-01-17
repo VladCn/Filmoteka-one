@@ -74,11 +74,14 @@
   font-size: 12px;
   line-height: 14px;
   @include _tablet{
-    margin-right: 75px;
+    //margin-right: 75px;
   }
   @include _desktop{
-    margin-right: 70px;
+    //margin-right: 70px;
   }
+}
+.header__link-page:hover{
+  color: #FF6B08;
 }
 ::-webkit-input-placeholder { /* WebKit browsers */
   color:    white;
@@ -90,10 +93,10 @@
   padding: 46px 0 0 0;
   margin-bottom: 43px;
   @include _tablet{
-    margin-left: 75px;
+    //margin-left: 75px;
   }
   @include _desktop{
-    margin-left: 70px;
+    //margin-left: 70px;
   }
 }
 .header__li:first-child{
@@ -114,8 +117,6 @@
   line-height: 16px;
   outline: none;
 }
-
-
 
 
 .header__button{
@@ -150,13 +151,13 @@ background: url("../images/search2.svg");
   }
 
   @include _tablet {
-    width: 768px;
+
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url("../images/lib-bacgr_tab.jpg");
     background-size: cover;
   }
 
   @include _desktop {
-    width: 1024px;
+
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url("../images/lib-bacgr_pc.jpg");
     background-size: cover;
     }
