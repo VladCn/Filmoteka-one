@@ -27,26 +27,32 @@ window.addEventListener('load', async () => {
 });
 
 function renderFilms(films,genres){
+  console.log(films.results)
   getGenres(genres)
 console.log(genres)
-  const markup = films.results.map(({poster_path, title, id}) => `<li class='main__item'>
+  const markup = films.results.map(({poster_path, title, genre_ids}) => `<li class='main__item'>
     <img class='main__img' src=${getImgPath(poster_path)}>
       <div class='block__text'>
         <p class='text__name'>${title}</p>
-        <p class='text__info'>${id}</p>
+        <p class='text__info'>${genre_ids}</p>
       </div>
   </li>`
     ).join("");
+  const markupG = films.results.map((gengeItem) => gengeItem.genre_ids)
+  console.log(...markupG)
 
+  // const resultG = for()ifgetGenres(genres).includes(markupG)
+  // console.log(resultG)
 
   mainSectionContainer.innerHTML = `<ul class='main__list'>${markup}</ul>`
+
 
 
 }
 function getGenres(genres){
   const markGenres = genres.genres.map(genre => genre.id)
-  console.log(markGenres)
-
+  console.log(markGenres.join())
+return markGenres
 }
 
 
