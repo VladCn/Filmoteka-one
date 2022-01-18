@@ -28,18 +28,19 @@ window.addEventListener('load', async () => {
 
 function renderFilms(films,genres){
   console.log(films.results)
-  getGenres(genres)
+
+
 console.log(genres)
   const markup = films.results.map(({poster_path, title, genre_ids}) => `<li class='main__item'>
     <img class='main__img' src=${getImgPath(poster_path)}>
       <div class='block__text'>
         <p class='text__name'>${title}</p>
-        <p class='text__info'>${genre_ids}</p>
+        <p class='text__info'>${ getGenres(genres, genre_ids)}</p>
       </div>
   </li>`
     ).join("");
-  const markupG = films.results.map((gengeItem) => gengeItem.genre_ids)
-  console.log(...markupG)
+  // const markupG = films.results.map((gengeItem) => gengeItem.genre_ids)
+  // console.log(markupG)
 
   // const resultG = for()ifgetGenres(genres).includes(markupG)
   // console.log(resultG)
@@ -49,12 +50,28 @@ console.log(genres)
 
 
 }
-function getGenres(genres){
-  const markGenres = genres.genres.map(genre => genre.id)
-  console.log(markGenres.join())
-return markGenres
+function getGenres(genres, genre_ids){
+  const newArr = [];
+
+  for( const arg of genres.genres){
+    const incl = genre_ids.includes(Number(arg.id))
+    if(incl){
+      newArr.push(arg.name)
+    }
+  }
+
+  if(newArr.length <= 2){
+    return newArr.join(", ")
+  } newArr.splice(2, 10, "Other")
+  return newArr.join(", ")
+
+
+  // const markGenres = genres.genres.map(genre => {
+//      if(genre_ids.includes(Number(genre.id))){
+//        return genre.name
+//      }
+//   }).filter(item => item)
+// console.log(markGenres)
+// return markGenres
+
 }
-
-
-
-
