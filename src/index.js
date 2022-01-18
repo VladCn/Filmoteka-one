@@ -31,11 +31,11 @@ function renderFilms(films,genres){
 
 
 console.log(genres)
-  const markup = films.results.map(({poster_path, title, genre_ids}) => `<li class='main__item'>
+  const markup = films.results.map(({poster_path, title, genre_ids, release_date}) => `<li class='main__item'>
     <img class='main__img' src=${getImgPath(poster_path)}>
       <div class='block__text'>
         <p class='text__name'>${title}</p>
-        <p class='text__info'>${ getGenres(genres, genre_ids)}</p>
+        <p class='text__info'>${getGenres(genres, genre_ids)}<span> | ${getDate(release_date)}</span></p>
       </div>
   </li>`
     ).join("");
@@ -63,8 +63,9 @@ function getGenres(genres, genre_ids){
   if(newArr.length <= 2){
     return newArr.join(", ")
   } newArr.splice(2, 10, "Other")
+  // console.log(release_date)
+  // const newSt = release_date.slice(0, 4)
   return newArr.join(", ")
-
 
   // const markGenres = genres.genres.map(genre => {
 //      if(genre_ids.includes(Number(genre.id))){
@@ -74,4 +75,7 @@ function getGenres(genres, genre_ids){
 // console.log(markGenres)
 // return markGenres
 
+}
+function getDate(release_date){
+  return release_date.slice(0, 4)
 }
