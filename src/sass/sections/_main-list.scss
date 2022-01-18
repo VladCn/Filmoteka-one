@@ -24,7 +24,7 @@
 
   transition: transform 250ms linear;
   margin-top: 15px;
-  border-radius: 5px;
+
   @include _phone_gap {
     width: 290px;
     margin-right: auto;
@@ -61,4 +61,6 @@
 }
 .main__img{
   margin-bottom: 10px;
+  border-radius: 5px;
+  height: 398px;
 }
