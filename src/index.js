@@ -1,4 +1,6 @@
 import noImg from '../src/images/noImageAvailable.jpg';
+import './pagination'
+
 const mainSectionContainer = document.querySelector(`[data-id=main-container]`)
 const settings = {
   BASE_URL : 'https://api.themoviedb.org/3/',

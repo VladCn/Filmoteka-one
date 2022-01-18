@@ -18,6 +18,9 @@
       margin-right: auto;
       margin-left: auto;
     }
+    .header__enter:hover{
+      border-bottom: 0.5px solid #ff6b08;
+    }
   }
 
   @include _tablet {
@@ -38,6 +41,9 @@
       border-bottom: 0.5px solid white;
       margin-right: auto;
       margin-left: auto;
+    }
+    .header__enter:hover{
+      border-bottom: 0.5px solid #ff6b08;
     }
   }
 
@@ -62,6 +68,9 @@
       border-bottom: 0.5px solid white;
       margin-right: auto;
       margin-left: auto;
+    }
+    .header__enter:hover{
+      border-bottom: 0.5px solid #ff6b08;
     }
   }
 }
@@ -117,6 +126,7 @@
   line-height: 16px;
   outline: none;
 }
+
 
 
 .header__button{
