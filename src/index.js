@@ -35,7 +35,7 @@ function renderFilms(films,genres){
 
 console.log(genres)
   const markup = films.results.map(({poster_path, title, genre_ids, release_date, id}) => `<li class='main__item'>
-    <a class='modal__link' href='#' id=${id} onclick=clickF()>
+    <a class='modal__link' href='#' id=${id} onclick=clickF(id)>
     <img class='main__img' src=${getImgPath(poster_path)}>
       <div class='block__text'>
         <p class='text__name'>${title}</p>

@@ -10,7 +10,8 @@ function actionBtn(e){
   modalGen.classList.add("hidden")
 }
 
-clickF = function(){
+clickF = function(id){
+  console.log(id)
   modalGen.classList.remove("hidden")
 }
 //
