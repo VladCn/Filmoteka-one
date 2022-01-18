@@ -1,5 +1,6 @@
 import noImg from '../src/images/noImageAvailable.jpg';
 import './pagination'
+import './modal'
 
 const mainSectionContainer = document.querySelector(`[data-id=main-container]`)
 const settings = {
@@ -33,12 +34,14 @@ function renderFilms(films,genres){
 
 
 console.log(genres)
-  const markup = films.results.map(({poster_path, title, genre_ids, release_date}) => `<li class='main__item'>
+  const markup = films.results.map(({poster_path, title, genre_ids, release_date, id}) => `<li class='main__item'>
+    <a class='modal__link' href='#' id=${id} onclick=clickF()>
     <img class='main__img' src=${getImgPath(poster_path)}>
       <div class='block__text'>
         <p class='text__name'>${title}</p>
         <p class='text__info'>${getGenres(genres, genre_ids)}<span> | ${getDate(release_date)}</span></p>
       </div>
+      </a>
   </li>`
     ).join("");
   // const markupG = films.results.map((gengeItem) => gengeItem.genre_ids)
