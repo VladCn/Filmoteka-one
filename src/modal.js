@@ -30,24 +30,27 @@ export async function handleMovieClick(event){
   console.log(result)
   modalRend.innerHTML =`
       <img class='modal__img' src='${getImgPath(result.poster_path)}'>
-      <p class='text__name'>${result.title}</p>
-      <ul>
-        <li>
-          <p>Vote / Votes 7.3/1260</p>
+      <p class='modal__text-name'>${result.title}</p>
+      <ul class='modal__link'>
+        <li class='modal__item'>
+          <p class='modal__item-text'>Vote / Votes </p>
+          <p class='modal__item-text2'><span class='modal__item-vote'>${result.vote_average}</span> / <span class='modal__item-span2'>${result.vote_count}</span></p>
         </li>
-        <li>
-          <p>Popularity 100.2</p>
+        <li class='modal__item'>
+          <p class='modal__item-text'>Popularity </p>
+          <p class='modal__item-text2'>${((result.popularity)/10).toFixed(2)}</p>
         </li>
-        <li>
-          <p>Original Title A FISTFUL OF LEAD</p>
+        <li class='modal__item'>
+          <p class='modal__item-text'>Original Title </p>
+          <p class='modal__item-text2'>${result.original_title}</p>
         </li>
-        <li>
-          <p>Genre Western </p>
+        <li class='modal__item'>
+          <p class='modal__item-text'>Genre </p>
+          <p class='modal__item-text2'><span class='modal__genres'>${(result.genres).map(genre => genre.name).join(", ")}</span></p>
         </li>
       </ul>
-      <p>About </p>
-      <p>Four of the West’s most infamous outlaws assemble to steal a huge stash of gold from the most corrupt settlement of the gold rush towns. But not all goes to plan one is killed and the other three escapes with bags of gold hide out in the abandoned gold mine where they happen across another gang of three – who themselves were planning to hit the very same bank! As tensions rise, things go from bad to worse as they realise the bags of gold are filled with lead... they’ve been double crossed – but by who and how?</p>
-`
+      <p class='modal__title'>About </p>
+      <p class='modal__overview'>${result.overview}</p>`
   // renderFilmsModal()
   modalGen.classList.remove("hidden")
 }
