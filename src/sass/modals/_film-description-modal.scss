@@ -30,7 +30,9 @@
   padding: 48px 20px 41px;
 
 }
-
+.modal__rend{
+  margin-bottom: 20px;
+}
 .modal__img{
   width: 240px;
   height: 356px;
@@ -122,4 +124,23 @@
   font-size: 12px;
   line-height: 20px;
   color: #000000;
+}
+
+.buttons_item{
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons_item__btn{
+  width: 113px;
+  height: 44px;
+  border: 1px solid black;
+  background-color: #FFFFFF;
+  border-radius: 5px;
+
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: black;
+  text-transform: uppercase;
 }
