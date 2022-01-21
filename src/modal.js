@@ -8,33 +8,36 @@ const modalLink = document.querySelectorAll(".modal__link")
 const modalRend =document.querySelector(".modal__rend")
 const modalContent =document.querySelector(".modal__content")
 
-
+document.addEventListener("keydown", keyDownHandler)
 modalBtn.addEventListener("click", actionBtn)
 modalGen.addEventListener("click", actionBtn)
 modalContent.addEventListener("click", (e) => e.stopPropagation())
 
+
+
 function actionBtn(e){
-// if(!modalContent){
-//   return
-// }
   console.log(e.path)
   modalGen.classList.add("hidden")
+}
+
+function keyDownHandler(event){
+  if(event.code === "Escape"){
+    modalGen.classList.add("hidden")
+  }
 }
 
 export async function handleMovieClick(event){
   let movieId = 0;
 
   for (let el of event.path) {
-
     if (el.classList?.contains('modal__link')) {
-
       movieId = el.dataset.id;
-      console.log(movieId)
   }}
 
-  const result = await fetchResults(`${settings.FULL_URL}${movieId}`)
-  console.log(result)
-  modalRend.innerHTML =`
+  if (movieId) {
+    const result = await fetchResults(`${settings.FULL_URL}${movieId}`)
+    console.log(result)
+    modalRend.innerHTML =`
       <img class='modal__img' src='${getImgPath(result.poster_path)}'>
       <p class='modal__text-name'>${result.title}</p>
       <ul class='modal__link'>
@@ -57,8 +60,10 @@ export async function handleMovieClick(event){
       </ul>
       <p class='modal__title'>About </p>
       <p class='modal__overview'>${result.overview}</p>`
-  // renderFilmsModal()
-  modalGen.classList.remove("hidden")
+    // renderFilmsModal()
+    modalGen.classList.remove("hidden")
+  }
+
 }
 //
 //   function actionLink(e){
