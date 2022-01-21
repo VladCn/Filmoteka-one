@@ -17,6 +17,14 @@
   z-index: 99;
   transition: visibility 0.3s linear, opacity 0.3s linear;
 
+  @include _tablet {
+    padding-top: 210px;
+  }
+
+  @include _desktop {
+    padding-top: 100px;
+  }
+
 }
 .hidden{
   visibility: hidden;
@@ -29,15 +37,77 @@
   margin: 20px 20px 30px;
   padding: 48px 20px 41px;
 
+  @include _tablet {
+  //display: flex;
+    width: 618px;
+    height: 562px;
+
+  }
+
+  @include _desktop {
+    width: 882px;
+    height: 686px;
+    margin: 0;
+  }
+
 }
+
+.modal__wrap-pic{
+  @include _tablet {
+    margin-right: 32px;
+
+  }
+
+  @include _desktop {
+  margin-right: 30px;
+    width: 396px;
+  }
+}
+.modal__wrap-cont{
+  display: flex;
+  flex-direction: column;
+  //width: 264px;
+  @include _tablet {
+    width: 264px;
+
+  }
+
+  @include _desktop {
+    width: 396px;
+  }
+}
+
 .modal__rend{
+
   margin-bottom: 20px;
+  @include _phone_gap {
+
+  }
+
+  @include _tablet {
+    display: flex;
+
+  }
+
+  @include _desktop {
+    display: flex;
+  }
+
 }
 .modal__img{
   width: 240px;
   height: 356px;
   border-radius: 5px;
   margin-bottom: 30px;
+  @include _tablet {
+    width: 264px;
+    height: auto;
+  }
+
+  @include _desktop {
+    width: 396px;
+    height: auto;
+  }
 }
 .modal__button{
   position: absolute;
@@ -124,11 +194,12 @@
   font-size: 12px;
   line-height: 20px;
   color: #000000;
+  margin-bottom: 21px;
 }
 
 .buttons_item{
   display: flex;
-  justify-content: space-between;
+
 }
 
 .buttons_item__btn{
@@ -143,4 +214,7 @@
   line-height: 16px;
   color: black;
   text-transform: uppercase;
+}
+.buttons_item__btn:first-child{
+  margin-right: 20px;
 }

@@ -8,16 +8,16 @@ const modalLink = document.querySelectorAll(".modal__link")
 const modalRend =document.querySelector(".modal__rend")
 const modalContent =document.querySelector(".modal__content")
 
-document.addEventListener("keydown", keyDownHandler)
-modalBtn.addEventListener("click", actionBtn)
-modalGen.addEventListener("click", actionBtn)
+
+modalBtn.addEventListener("click", handleCloseModal)
+modalGen.addEventListener("click", handleCloseModal)
 modalContent.addEventListener("click", (e) => e.stopPropagation())
 
 
 
-function actionBtn(e){
-  console.log(e.path)
+function handleCloseModal(e){
   modalGen.classList.add("hidden")
+  document.removeEventListener("keydown", keyDownHandler)
 }
 
 function keyDownHandler(event){
@@ -36,10 +36,13 @@ export async function handleMovieClick(event){
 
   if (movieId) {
     const result = await fetchResults(`${settings.FULL_URL}${movieId}`)
-    console.log(result)
+    document.addEventListener("keydown", keyDownHandler)
     modalRend.innerHTML =`
-      <img class='modal__img' src='${getImgPath(result.poster_path)}'>
-      <p class='modal__text-name'>${result.title}</p>
+      <div class='modal__wrap-pic'>
+            <img class='modal__img' src='${getImgPath(result.poster_path)}'>
+      </div>
+      <div class='modal__wrap-cont'>
+            <p class='modal__text-name'>${result.title}</p>
       <ul class='modal__link'>
         <li class='modal__item'>
           <p class='modal__item-text'>Vote / Votes </p>
@@ -59,7 +62,13 @@ export async function handleMovieClick(event){
         </li>
       </ul>
       <p class='modal__title'>About </p>
-      <p class='modal__overview'>${result.overview}</p>`
+      <p class='modal__overview'>${result.overview}</p>
+            <div class='buttons_item'>
+        <button class='buttons_item__btn' >add to Watched</button>
+        <button class='buttons_item__btn'>add to queue</button>
+      </div>
+      </div>
+`
     // renderFilmsModal()
     modalGen.classList.remove("hidden")
   }
