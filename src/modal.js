@@ -6,12 +6,18 @@ const hiddenAct = document.querySelector(".hidden")
 const modalBtn = document.querySelector(".modal__button")
 const modalLink = document.querySelectorAll(".modal__link")
 const modalRend =document.querySelector(".modal__rend")
+const modalContent =document.querySelector(".modal__content")
 
 
 modalBtn.addEventListener("click", actionBtn)
+modalGen.addEventListener("click", actionBtn)
+modalContent.addEventListener("click", (e) => e.stopPropagation())
 
 function actionBtn(e){
-
+// if(!modalContent){
+//   return
+// }
+  console.log(e.path)
   modalGen.classList.add("hidden")
 }
 
