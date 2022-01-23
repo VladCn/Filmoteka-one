@@ -7,12 +7,14 @@ export const settings = {
   TRENDING_URL:`trending/movie/day`,
   GENRES_URL: `/genre/movie/list`,
   FULL_URL: `movie/`,
+  SEARCH_URL:`search/movie`,
 }
 
 
-export const fetchResults = async(url) =>{
+export const fetchResults = async(url, search) =>{
   try{
-    const response = await fetch(`${settings.BASE_URL}${url}?api_key=${settings.API_KEY}`);
+    const fetchUrl = search ? `${settings.BASE_URL}${url}?api_key=${settings.API_KEY}&query=${search}` : `${settings.BASE_URL}${url}?api_key=${settings.API_KEY}`
+    const response = await fetch(fetchUrl);
     const result = await response.json();
     return result
   }  catch (error) {
