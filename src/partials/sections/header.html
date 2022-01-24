@@ -15,9 +15,10 @@
         </ul>
       </div>
       <form class='header__enter'>
-        <input class='header__input' name='film' type='text' placeholder='Поиск фильмов'>
-        <button class='header__button' type="submit"></button>
+        <input id="textInput" class='header__input' name='film' type='text' placeholder='Поиск фильмов' autocomplete="off">
+        <button id="clearButton" class='header__button' type="submit"></button>
       </form>
+      <p class='error-text hidden'>Search result not successful. Enter the correct movie name.</p>
     </div>
 
   </section>

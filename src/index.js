@@ -5,6 +5,7 @@ import { settings, fetchResults, getImgPath} from './api';
 
 
 const mainSectionContainer = document.querySelector(`[data-id=main-container]`)
+const errorText = document.querySelector(".error-text")
 const inputJS = document.querySelector(".header__enter")
 let genres = []
 
@@ -19,14 +20,24 @@ window.addEventListener('load', async () => {
 inputJS.addEventListener("submit", (event) => inputGetInfo( event, genres))
 mainSectionContainer.addEventListener("click", handleMovieClick)
 
-async function  inputGetInfo(event, genres){
+async function  inputGetInfo(event, genres, enterInput){
+
   event.preventDefault()
   const resultInput = event.currentTarget.elements.film.value
+  inputJS.reset();
+  console.log(resultInput.length)
   const inputFilms = await fetchResults(settings.SEARCH_URL, resultInput)
-  console.log(inputFilms)
-
+  if(!inputFilms.total_results){
+    return errorText.classList.remove("hidden")
+  }
+  errorText.classList.add("hidden")
   renderFilms(inputFilms,genres)
+  // if(resultInput.length > 0){
+  //   console.log(resultInput)
+  // }
 }
+
+
 
 function renderFilms(films,genres){
 
@@ -47,7 +58,6 @@ function renderFilms(films,genres){
 
 function getGenres(genres, genre_ids){
   const newArr = [];
-console.log(genres, genre_ids)
   for ( const arg of genres.genres){
    const incl = genre_ids.includes(Number(arg.id))
     if(incl){
@@ -63,5 +73,9 @@ console.log(genres, genre_ids)
 }
 
 function getDate(release_date){
+  if(!release_date){
+    return
+  }
+  console.log(release_date)
   return release_date.slice(0, 4)
 }
