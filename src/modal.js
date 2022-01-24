@@ -76,23 +76,34 @@ export async function handleMovieClick(event){
     watchBtn.addEventListener("click", () => {
       const prevSettings = localStorage.getItem("watched")
       if(prevSettings){
+
         const parsedSettings = JSON.parse(prevSettings)
+        console.log(parsedSettings)
        const isIncludeInLS = parsedSettings.some(({id}) => result.id === id)
+        watchBtn.classList.toggle("active-btn__modal")
+        console.log(isIncludeInLS)
         if(!isIncludeInLS){
           return localStorage.setItem("watched", JSON.stringify([...parsedSettings, result]))
         }
+        const filteredInLS = parsedSettings.filter(({id}) => result.id !== id)
+        return localStorage.setItem("watched", JSON.stringify(filteredInLS))
       }
       localStorage.setItem("watched", JSON.stringify([result]))
     })
+
+
     const queueBtn = document.querySelector("#queue")
     queueBtn.addEventListener("click", () => {
       const prevSettings = localStorage.getItem("queue")
       if(prevSettings){
         const parsedSettings = JSON.parse(prevSettings)
         const isIncludeInLS = parsedSettings.some(({id}) => result.id === id)
+        queueBtn.classList.toggle("active-btn__modal")
         if(!isIncludeInLS){
           return localStorage.setItem("queue", JSON.stringify([...parsedSettings, result]))
         }
+        const filteredInLS = parsedSettings.filter(({id}) => result.id !== id)
+        return localStorage.setItem("watched", JSON.stringify(filteredInLS))
       }
       localStorage.setItem("queue", JSON.stringify([result]))
     })
