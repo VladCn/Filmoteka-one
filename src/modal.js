@@ -1,6 +1,6 @@
 import noImg from './images/noImageAvailable.jpg';
 import { settings, fetchResults, getImgPath} from './api';
-import { films } from './index.js';
+
 
 const modalGen = document.querySelector(".modal")
 const hiddenAct = document.querySelector(".hidden")
@@ -74,15 +74,27 @@ export async function handleMovieClick(event){
 
     const watchBtn = document.querySelector("#watched")
     watchBtn.addEventListener("click", () => {
-      const prevSettings = localStorage.getItem("settings")
+      const prevSettings = localStorage.getItem("watched")
       if(prevSettings){
         const parsedSettings = JSON.parse(prevSettings)
        const isIncludeInLS = parsedSettings.some(({id}) => result.id === id)
         if(!isIncludeInLS){
-          return localStorage.setItem("settings", JSON.stringify([...parsedSettings, result]))
+          return localStorage.setItem("watched", JSON.stringify([...parsedSettings, result]))
         }
       }
-      localStorage.setItem("settings", JSON.stringify([result]))
+      localStorage.setItem("watched", JSON.stringify([result]))
+    })
+    const queueBtn = document.querySelector("#queue")
+    queueBtn.addEventListener("click", () => {
+      const prevSettings = localStorage.getItem("queue")
+      if(prevSettings){
+        const parsedSettings = JSON.parse(prevSettings)
+        const isIncludeInLS = parsedSettings.some(({id}) => result.id === id)
+        if(!isIncludeInLS){
+          return localStorage.setItem("queue", JSON.stringify([...parsedSettings, result]))
+        }
+      }
+      localStorage.setItem("queue", JSON.stringify([result]))
     })
   }
 
