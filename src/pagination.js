@@ -1,4 +1,5 @@
 import Pagination from 'tui-pagination';
+import 'tui-pagination/dist/tui-pagination.css';
 
 console.log("11111111111111")
 const options = {

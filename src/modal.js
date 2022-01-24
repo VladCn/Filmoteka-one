@@ -1,18 +1,17 @@
 import noImg from './images/noImageAvailable.jpg';
 import { settings, fetchResults, getImgPath} from './api';
+import { films } from './index.js';
 
 const modalGen = document.querySelector(".modal")
 const hiddenAct = document.querySelector(".hidden")
 const modalBtn = document.querySelector(".modal__button")
 const modalLink = document.querySelectorAll(".modal__link")
-const modalRend =document.querySelector(".modal__rend")
-const modalContent =document.querySelector(".modal__content")
-
+const modalRend = document.querySelector(".modal__rend")
+const modalContent = document.querySelector(".modal__content")
 
 modalBtn.addEventListener("click", handleCloseModal)
 modalGen.addEventListener("click", handleCloseModal)
 modalContent.addEventListener("click", (e) => e.stopPropagation())
-
 
 
 function handleCloseModal(e){
@@ -36,7 +35,8 @@ export async function handleMovieClick(event){
 
   if (movieId) {
     const result = await fetchResults(`${settings.FULL_URL}${movieId}`)
-    document.addEventListener("keydown", keyDownHandler)
+    document.addEventListener("keydown", keyDownHandler);
+
     modalRend.innerHTML =`
       <div class='modal__wrap-pic'>
             <img class='modal__img' src='${getImgPath(result.poster_path)}'>
@@ -64,17 +64,28 @@ export async function handleMovieClick(event){
       <p class='modal__title'>About </p>
       <p class='modal__overview'>${result.overview}</p>
             <div class='buttons_item'>
-        <button class='buttons_item__btn' >add to Watched</button>
-        <button class='buttons_item__btn'>add to queue</button>
+        <button class='buttons_item__btn' id='watched'>add to Watched</button>
+        <button class='buttons_item__btn' id='queue'>add to queue</button>
       </div>
       </div>
 `
     // renderFilmsModal()
     modalGen.classList.remove("hidden")
+
+    const watchBtn = document.querySelector("#watched")
+    watchBtn.addEventListener("click", () => {
+      const prevSettings = localStorage.getItem("settings")
+      if(prevSettings){
+        const parsedSettings = JSON.parse(prevSettings)
+       const isIncludeInLS = parsedSettings.some(({id}) => result.id === id)
+        if(!isIncludeInLS){
+          return localStorage.setItem("settings", JSON.stringify([...parsedSettings, result]))
+        }
+      }
+      localStorage.setItem("settings", JSON.stringify([result]))
+    })
   }
 
 }
-//
-//   function actionLink(e){
-//     console.log(e)
-//   }
+
+

@@ -32,10 +32,13 @@
 .modal__content{
   position: relative;
   width: 280px;
-  min-height: 958px;
+  height: 958px;
   background-color: #FFFFFF;
   margin: 20px 20px 30px;
   padding: 48px 20px 41px;
+  @include _phone_gap {
+    min-height: 958px;
+  }
 
   @include _tablet {
   //display: flex;

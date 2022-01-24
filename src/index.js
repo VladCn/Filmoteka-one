@@ -1,5 +1,6 @@
 import noImg from '../src/images/noImageAvailable.jpg';
-import './pagination'
+import Pagination from 'tui-pagination';
+import 'tui-pagination/dist/tui-pagination.css';
 import { handleMovieClick } from './modal'
 import { settings, fetchResults, getImgPath} from './api';
 
@@ -8,6 +9,7 @@ const mainSectionContainer = document.querySelector(`[data-id=main-container]`)
 const errorText = document.querySelector(".error-text")
 const inputJS = document.querySelector(".header__enter")
 let genres = []
+
 
 window.addEventListener('load', async () => {
   const films = await fetchResults(settings.TRENDING_URL)
@@ -40,7 +42,7 @@ async function  inputGetInfo(event, genres, enterInput){
 
 
 function renderFilms(films,genres){
-
+console.log(films)
   const markup = films.results.map(({poster_path, title, genre_ids, release_date, id}) => `<li class='main__item'>
     <a class='modal__link' href='#' data-id=${id}>
     <img class='main__img' src=${getImgPath(poster_path)}>
@@ -76,6 +78,6 @@ function getDate(release_date){
   if(!release_date){
     return
   }
-  console.log(release_date)
+
   return release_date.slice(0, 4)
 }
